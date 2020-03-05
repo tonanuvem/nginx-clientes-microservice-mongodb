@@ -9,7 +9,9 @@ services:
             condition: on-failure
             max_attempts: 3
     ports:
-     - "8080:80"
+      - "8080:80"
+    networks:
+      - net
   backend:
     image: tonanuvem/backend_clientes_microservice:latest
     deploy:
@@ -18,7 +20,9 @@ services:
             condition: on-failure
             max_attempts: 3
     ports:
-     - "5000:5000"
+      - "5000:5000"
+    networks:
+      - net
   mongo:
     container_name: mongo
     image: mongo:latest
@@ -30,6 +34,8 @@ services:
             max_attempts: 3
     ports:
       - "27017:27017"
+    networks:
+      - net
 volumes:
   data:
   
