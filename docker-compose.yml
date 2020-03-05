@@ -7,15 +7,13 @@ services:
       dockerfile: ./frontend/Dockerfile
     ports:
      - "8080:80"
-    network:
-      - net
+
   backend:
     container_name: backend
     build: .
     ports:
      - "5000:5000"
-    network:
-      - net
+
   mongo:
     container_name: mongo
     image: mongo:latest
@@ -26,10 +24,7 @@ services:
         condition: always
     ports:
       - "27017:27017"
-    network:
-      - net
+
 volumes:
   data:
-networks: 
-    net:
-      driver: bridge
+
