@@ -1,7 +1,7 @@
 Projeto clientes-microservice-mongodb com as 3 camadas separadas:
-<br><br>
+<br> <br>
 >frontend: utiliza nginx para redirecionar /api/clientes para o backend
-<br><br>
+<br> <br>
 >backend: api em python
-<br><br>
+<br> <br>
 > mongo: banco de dados
