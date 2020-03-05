@@ -37,6 +37,13 @@ services:
     networks:
       - net
 
+  mongoexpress:
+    image: mongo-express
+    ports:
+      - "8081:8081"
+    networks:
+      - net
+        
   visualizador:
     image: dockersamples/visualizer
     volumes:
