@@ -32,3 +32,7 @@ services:
       - "27017:27017"
 volumes:
   data:
+  
+networks:
+  net:
+    external: true
