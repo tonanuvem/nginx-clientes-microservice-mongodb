@@ -1,0 +1,36 @@
+version: '3'
+services:
+  frontend:
+    container_name: frontend
+    image: tonanuvem/frontend_clientes_microservice:latest
+    deploy:
+        replicas: 3
+        restart_policy:
+            condition: on-failure
+            max_attempts: 3
+    ports:
+     - "8080:80"
+  backend:
+    image: tonanuvem/backend_clientes_microservice:latest
+    deploy:
+        replicas: 3
+        restart_policy:
+            condition: on-failure
+            max_attempts: 3
+    ports:
+     - "5000:5000"
+    volumes:
+     - .:/code
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    volumes:
+      - data:/data
+    deploy:
+      restart_policy:
+            condition: on-failure
+            max_attempts: 3
+    ports:
+      - "27017:27017"
+volumes:
+  data:
