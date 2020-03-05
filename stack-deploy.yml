@@ -19,8 +19,6 @@ services:
             max_attempts: 3
     ports:
      - "5000:5000"
-    volumes:
-     - .:/code
   mongo:
     container_name: mongo
     image: mongo:latest
