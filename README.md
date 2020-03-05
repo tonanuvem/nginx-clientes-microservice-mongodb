@@ -1,10 +1,14 @@
 Projeto clientes-microservice-mongodb com as 3 camadas separadas:
 <br> <br>
->frontend: utiliza nginx para redirecionar /api/clientes para o backend
+>Porta 8000: frontend: utiliza nginx para redirecionar /api/clientes para o backend
 <br> <br>
->backend: api em python
+>Porta 5000: backend: api em python
 <br> <br>
-> mongo: banco de dados
+>Porta 27017: mongo: banco de dados
+<br> <br>
+>Porta 8080: visualizer: visualizador do Cluster Swarm
+<br> <br>
+>Porta 8081: mongo: visualizador do Banco de Dados
 
 Acessar PwD
 
