@@ -5,3 +5,11 @@ Projeto clientes-microservice-mongodb com as 3 camadas separadas:
 >backend: api em python
 <br> <br>
 > mongo: banco de dados
+
+Acessar PwD
+
+Criar arquivo stack-deploy.yml
+
+Executar:
+
+> docker stack deploy -c stack-deploy.yml clientes
