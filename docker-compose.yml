@@ -1,0 +1,28 @@
+version: '3'
+services:
+  frontend:
+    container_name: frontend
+    build: 
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    ports:
+     - "8080:80"
+  backend:
+    container_name: backend
+    build: .
+    ports:
+     - "5000:5000"
+    volumes:
+     - .:/code
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    volumes:
+      - data:/data
+    deploy:
+      restart_policy:
+        condition: always
+    ports:
+      - "27017:27017"
+volumes:
+  data:
