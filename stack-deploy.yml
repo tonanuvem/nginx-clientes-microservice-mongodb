@@ -59,4 +59,4 @@ volumes:
   data:
   
 networks:
-  net:
+  net: true
