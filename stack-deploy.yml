@@ -59,4 +59,5 @@ volumes:
   data:
   
 networks:
-  net: true
+  net:
+    external: true
