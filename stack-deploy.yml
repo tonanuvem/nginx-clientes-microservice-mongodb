@@ -60,5 +60,3 @@ volumes:
   
 networks:
   net:
-    external: true
-    attachable: true
