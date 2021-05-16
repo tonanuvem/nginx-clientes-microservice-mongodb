@@ -1,0 +1,142 @@
+openapi: 3.0.0
+info:
+  description: Swagger file
+  version: 1.0.0
+  title: Swagger ReST Clientes
+paths:
+  /clientes:
+    get:
+      operationId: clientes.read_all
+      tags:
+        - Clientes
+      summary: Lista de Clientes
+      description: Lista de Clientes
+      responses:
+        "200":
+          description: Sucesso na leitura de Clientes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: string
+                    fname:
+                      type: string
+                    lname:
+                      type: string
+                    timestamp:
+                      type: string
+    post:
+      operationId: clientes.create
+      tags:
+        - Clientes
+      summary: Cria uma pessoa e adiciona na lista de Clientes
+      description: Adiciona na lista de Clientes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fname:
+                  type: string
+                  description: Primeiro nome
+                lname:
+                  type: string
+                  description: Ultimo nome
+        description: Pessoa a ser criada
+        required: true
+      responses:
+        "201":
+          description: Sucesso ao criar
+    delete:
+      operationId: clientes.deleteMany
+      tags:
+        - Clientes
+      summary: Deletar uma lista de Clientes
+      parameters:
+        - in: query
+          name: ids
+          description: One or more IDs
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        "200":
+          description: Sucesso ao deletar
+  "/clientes/{id}":
+    get:
+      operationId: clientes.read_one
+      tags:
+        - Clientes
+      summary: Leitura de uma pessoa da lista de Clientes
+      description: Leitura de uma pessoa
+      parameters:
+        - name: id
+          in: path
+          description: ID do cliente
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Sucesso na leitura de uma pessoa
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                  fname:
+                    type: string
+                  lname:
+                    type: string
+                  timestamp:
+                    type: string
+    put:
+      operationId: clientes.update
+      tags:
+        - Clientes
+      summary: Update na lista de Clientes
+      description: Update na lista
+      parameters:
+        - name: id
+          in: path
+          description: ID
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fname:
+                  type: string
+                lname:
+                  type: string
+      responses:
+        "200":
+          description: Sucesso ao atualizar
+    delete:
+      operationId: clientes.delete
+      tags:
+        - Clientes
+      summary: Deletar uma pessoa na lista de Clientes
+      description: Deleta uma pessoa
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Sucesso ao deletar
+servers:
+  - url: /api
